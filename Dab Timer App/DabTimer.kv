@@ -1,0 +1,72 @@
+<DabTimer>:
+    orientation: 'vertical'
+    padding: dp(10)
+    spacing: dp(10)
+
+    Label:
+        id: timer_label
+        text: 'Ready'
+        font_size: '24sp'
+        size_hint_y: None
+        height: dp(50)
+
+    Label:
+        text: 'Select Material:'
+        size_hint_y: None
+        height: dp(30)
+    Spinner:
+        id: material_spinner
+        text: 'Quartz'
+        values: ['Quartz', 'Titanium', 'Ceramic']
+        size_hint_y: None
+        height: dp(40)
+
+    Label:
+        text: 'Select Style:'
+        size_hint_y: None
+        height: dp(30)
+    Spinner:
+        id: style_spinner
+        text: 'Flat Top'
+        values: ['Flat Top', 'Slanted', 'Thermal', 'Terp Slurper']
+        size_hint_y: None
+        height: dp(40)
+
+    Label:
+        text: 'Select Wax:'
+        size_hint_y: None
+        height: dp(30)
+    Spinner:
+        id: wax_spinner
+        text: 'Shatter'
+        values: ['Shatter', 'Budder', 'Crumble', 'Rosin', 'Live Resin', 'Sugar']
+        size_hint_y: None
+        height: dp(40)
+
+    Label:
+        text: 'Flame Intensity (×):'
+        size_hint_y: None
+        height: dp(30)
+    Slider:
+        id: intensity_slider
+        min: 0.5; max: 2.0; value: 1.0; step: 0.1
+    Label:
+        id: int_label
+        text: f'{intensity_slider.value:.1f}'
+        size_hint_y: None
+        height: dp(30)
+
+    BoxLayout:
+        size_hint_y: None
+        height: dp(40)
+        spacing: dp(10)
+        Button:
+            id: start_button
+            text: 'Start Heat Timer'
+            on_press: root.toggle_timer(self)
+        Button:
+            text: 'View Log'
+            on_press: root.show_log(self)
+        Button:
+            text: 'Close App'
+            on_press: root.close_app(self)
